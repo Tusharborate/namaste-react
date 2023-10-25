@@ -16,5 +16,5 @@ const heading = React.createElement("div",{},
                 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+// This is comment
 root.render(heading);

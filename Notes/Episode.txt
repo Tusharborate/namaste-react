@@ -1,0 +1,23 @@
+Webpack Bundler: All Bundler does same things
+
+Vite is Bundler
+Parcel is also Bundler
+npm install -D parcel
+
+Dependancy: There are Dependancy
+a) Normal Dependancy - Used in production
+b) Dev Dependancy - When Developing
+
+Parcel is best. 
+
+() Caret will upgrade to minor version (2.8.5)
+(~) Tilde will upgrade to major version (3.0.0)
+
+
+Package-lock.json: It takes keeps tracks of exact version packages
+                All the exact version of all dependancies
+
+
+Package.json: Approximate version track of packages
+
+Transitive Dependancy: Parcel dependant of other packages than our project so it installs dependancies
