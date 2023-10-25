@@ -23,3 +23,18 @@ Package.json: Approximate version track of packages
 Transitive Dependancy: Parcel dependant of other packages than our project so it installs dependancies
 
 Package.json: Recreate node_Modules
+
+The things we can regenerate no need to keep in Github
+
+
+NPX is nothing but executing a packages
+
+npx package_name index.html
+npx parcel index.html
+
+CDN is not a good way to fetch React files
+
+Parcel: 
+HMR
+Server
+Auto dev
