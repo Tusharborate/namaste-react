@@ -21,3 +21,5 @@ Package-lock.json: It takes keeps tracks of exact version packages
 Package.json: Approximate version track of packages
 
 Transitive Dependancy: Parcel dependant of other packages than our project so it installs dependancies
+
+Package.json: Recreate node_Modules
