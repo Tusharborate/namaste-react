@@ -1,3 +1,51 @@
-#heading {
-    color: red; 
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.header {
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 1px #000000;
+}
+.logo img {
+    max-width: 120px;
+}
+.navigation {
+    display: flex;
+}
+.navigation li {
+    list-style-type: none;
+    margin: 0 5px;
+    font-size: 24px;
+}
+
+.resto-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.resto-card-content {
+    padding: 20px;
+}
+
+.resto-card {
+    position: relative;
+    max-width: 200px;
+    margin: 5px;
+    border: solid 1px #ccc;
+    background-color: lightblue;
+    transition: all 200ms;
+}
+
+.resto-card:hover {
+    cursor: pointer;
+    top: 2px;
+    border: solid 1px #000;
+}
+
+.resto-img {
+    max-width: 100%;
+    min-height: 200px;
 }
