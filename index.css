@@ -26,17 +26,22 @@ body {
     justify-content: space-between;
 }
 
+.resto-container::after {
+    content: "";
+    flex: auto;
+  }
+
 .resto-card-content {
     padding: 20px;
 }
 
 .resto-card {
     position: relative;
-    max-width: 200px;
-    margin: 5px;
+    max-width: calc(20% - 5px);
+    margin: 5px 0;
     border: solid 1px #ccc;
-    background-color: lightblue;
-    transition: all 200ms;
+    border-radius: 10px;
+    transition: all 400ms;
 }
 
 .resto-card:hover {
@@ -48,4 +53,16 @@ body {
 .resto-img {
     max-width: 100%;
     min-height: 200px;
+    border-radius: 10px;
+}
+
+.resto-options {
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.resto-location {
+    font-size: 14px;
+    font-weight: 400;
 }
