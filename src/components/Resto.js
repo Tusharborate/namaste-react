@@ -1,5 +1,5 @@
 const RestoComponent = (props) => {
-  const { image, name, locality, cuisine } = props.data;
+  const { image, name, locality, cuisine, rating } = props.data;
 
   const cuis = [];
   cuisine.map((resto) => {
@@ -13,6 +13,7 @@ const RestoComponent = (props) => {
         <h3 className="resto-title">{name}</h3>
         <p className="resto-options">{cuis.join(", ")}</p>
         <p className="resto-location">{locality.name}</p>
+        <p className="resto-ratings">{rating.rating_text}</p>
       </div>
     </div>
   );
