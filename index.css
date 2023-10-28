@@ -1,68 +1,73 @@
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .header {
-    display: flex;
-    padding: 0 20px;
-    justify-content: space-between;
-    align-items: center;
-    border: solid 1px #000000;
+  display: flex;
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px #000000;
 }
 .logo img {
-    max-width: 120px;
+  max-width: 120px;
 }
 .navigation {
-    display: flex;
+  display: flex;
 }
 .navigation li {
-    list-style-type: none;
-    margin: 0 5px;
-    font-size: 24px;
+  list-style-type: none;
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+.navigation li:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .resto-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .resto-container::after {
-    content: "";
-    flex: auto;
-  }
+  content: "";
+  flex: auto;
+}
 
 .resto-card-content {
-    padding: 20px;
+  padding: 20px;
 }
 
 .resto-card {
-    position: relative;
-    max-width: calc(20% - 5px);
-    margin: 5px 0;
-    border: solid 1px #ccc;
-    border-radius: 10px;
-    transition: all 400ms;
+  position: relative;
+  max-width: calc(20% - 5px);
+  margin: 5px 0;
+  border: solid 1px #ccc;
+  border-radius: 10px;
+  transition: all 400ms;
 }
 
 .resto-card:hover {
-    cursor: pointer;
-    top: 2px;
-    border: solid 1px #000;
+  cursor: pointer;
+  top: 2px;
+  border: solid 1px #000;
 }
 
 .resto-img {
-    max-width: 100%;
-    min-height: 200px;
-    border-radius: 10px;
+  max-width: 100%;
+  min-height: 200px;
+  border-radius: 10px;
 }
 
 .resto-options {
-    font-size: 12px;
-    font-weight: 400;
-    font-style: italic;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .resto-location {
-    font-size: 14px;
-    font-weight: 400;
+  font-size: 14px;
+  font-weight: 400;
 }
