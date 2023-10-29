@@ -21,11 +21,9 @@ const BodyComponent = () => {
     );
   };
 
-  if (restaurantArr.length === 0) {
-    return <Shimmer />;
-  }
-
-  return (
+  return restaurantArr.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="search-container">
         <button
@@ -33,9 +31,8 @@ const BodyComponent = () => {
           className="filter-btn"
           onClick={() => {
             let tempRestArray = restaurantArr.filter((restaurant) => {
-              return restaurant.info.avgRating > 4.1;
+              return restaurant.info.avgRating > 4.5;
             });
-            // console.log(tempRestArray);
             setRestaurantArr(tempRestArray);
           }}
         >
@@ -44,6 +41,7 @@ const BodyComponent = () => {
       </div>
       <div className="resto-container">
         {restaurantArr.map((restaurant) => {
+          // console.log(restaurant);
           return (
             <RestoComponent key={restaurant.info.id} data={restaurant.info} />
           );
@@ -52,4 +50,5 @@ const BodyComponent = () => {
     </>
   );
 };
+
 export default BodyComponent;

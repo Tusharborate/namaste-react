@@ -42,7 +42,7 @@ body {
 
 .resto-card {
   position: relative;
-  max-width: calc(20% - 5px);
+  width: calc(20% - 5px);
   margin: 5px 0;
   border: solid 1px #ccc;
   border-radius: 10px;
@@ -56,8 +56,8 @@ body {
 }
 
 .resto-img {
-  max-width: 100%;
-  min-height: 200px;
+  width: 100%;
+  height: 200px;
   border-radius: 10px;
 }
 
@@ -93,4 +93,9 @@ body {
   border-radius: 10px;
   transition: all 400ms;
   background: #ccc;
+}
+
+.btnClass {
+  padding: 5px 10px;
+  cursor: pointer;
 }
