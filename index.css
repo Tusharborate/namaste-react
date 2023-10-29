@@ -77,3 +77,20 @@ body {
   padding: 5px 15px;
   cursor: pointer;
 }
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.shimmer-card {
+  position: relative;
+  width: calc(20% - 5px);
+  height: 200px;
+  margin: 5px 0;
+  border: solid 1px #ccc;
+  border-radius: 10px;
+  transition: all 400ms;
+  background: #ccc;
+}

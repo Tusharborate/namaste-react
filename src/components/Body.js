@@ -1,14 +1,30 @@
-import { restoData } from "../utils/mockData";
-import restoDataTwo from "../utils/mockData";
 import RestoComponent from "./Resto";
-import { useState } from "react";
-
-// let restaurantArr = restoDataTwo.sections.SECTION_SEARCH_RESULT;
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const BodyComponent = () => {
-  const [restaurantArr, setRestaurantArr] = useState(
-    restoDataTwo.sections.SECTION_SEARCH_RESULT
-  );
+  const [restaurantArr, setRestaurantArr] = useState([]);
+
+  useEffect(() => {
+    getRestoData();
+  }, []);
+
+  const getRestoData = async () => {
+    const apiData = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const resData = await apiData.json();
+
+    setRestaurantArr(
+      resData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+  };
+
+  if (restaurantArr.length === 0) {
+    return <Shimmer />;
+  }
+
   return (
     <>
       <div className="search-container">
@@ -17,7 +33,7 @@ const BodyComponent = () => {
           className="filter-btn"
           onClick={() => {
             let tempRestArray = restaurantArr.filter((restaurant) => {
-              return restaurant.info.rating.rating_text > 4.1;
+              return restaurant.info.avgRating > 4.1;
             });
             // console.log(tempRestArray);
             setRestaurantArr(tempRestArray);
@@ -29,10 +45,7 @@ const BodyComponent = () => {
       <div className="resto-container">
         {restaurantArr.map((restaurant) => {
           return (
-            <RestoComponent
-              key={restaurant.info.resId}
-              data={restaurant.info}
-            />
+            <RestoComponent key={restaurant.info.id} data={restaurant.info} />
           );
         })}
       </div>
