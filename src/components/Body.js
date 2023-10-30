@@ -4,7 +4,9 @@ import Shimmer from "./Shimmer";
 
 const BodyComponent = () => {
   const [restaurantArr, setRestaurantArr] = useState([]);
+  const [filteredArr, setFilteredArr] = useState([]);
 
+  const [searchVal, setSearchVal] = useState("");
   useEffect(() => {
     getRestoData();
   }, []);
@@ -19,6 +21,11 @@ const BodyComponent = () => {
       resData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
+
+    setFilteredArr(
+      resData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
   };
 
   return restaurantArr.length === 0 ? (
@@ -26,22 +33,41 @@ const BodyComponent = () => {
   ) : (
     <>
       <div className="search-container">
+        <input
+          type="text"
+          className="search-field"
+          value={searchVal}
+          onChange={(e) => {
+            setSearchVal(e.target.value);
+          }}
+        />
         <button
-          value="Search"
+          className="search-btn"
+          onClick={() => {
+            const tempSearchArray = restaurantArr.filter((restaurant) => {
+              return restaurant.info.name
+                .toLowerCase()
+                .includes(searchVal.toLowerCase());
+            });
+            setFilteredArr(tempSearchArray);
+          }}
+        >
+          Search
+        </button>
+        <button
           className="filter-btn"
           onClick={() => {
-            let tempRestArray = restaurantArr.filter((restaurant) => {
-              return restaurant.info.avgRating > 4.5;
+            const tempRestArray = restaurantArr.filter((restaurant) => {
+              return restaurant.info.avgRating > 4;
             });
-            setRestaurantArr(tempRestArray);
+            setFilteredArr(tempRestArray);
           }}
         >
           Filter
         </button>
       </div>
       <div className="resto-container">
-        {restaurantArr.map((restaurant) => {
-          // console.log(restaurant);
+        {filteredArr.map((restaurant) => {
           return (
             <RestoComponent key={restaurant.info.id} data={restaurant.info} />
           );

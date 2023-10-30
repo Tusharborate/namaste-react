@@ -2,7 +2,6 @@ import { LOGO_URL } from "../utils/config";
 import { useState } from "react";
 
 const Heading = () => {
-  // console.log("Component Rerendered");
   const [btnLabel, setBtnLabel] = useState("Login");
   return (
     <header className="header">

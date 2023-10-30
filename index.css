@@ -99,3 +99,13 @@ body {
   padding: 5px 10px;
   cursor: pointer;
 }
+
+.search-btn {
+  margin: 10px 20px 10px 0;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.search-field {
+  padding: 5px 10px;
+}
