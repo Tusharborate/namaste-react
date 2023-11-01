@@ -8,6 +8,7 @@ import About from "./src/components/About";
 import Services from "./src/components/Services";
 import Contact from "./src/components/Contact";
 import ErrorComp from "./src/components/ErrorComp";
+import Restaurant from "./src/components/Restaurant";
 
 const Mainwrapper = () => (
   <div className="container">
@@ -37,6 +38,10 @@ const LoginURL = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/restaurants/:id",
+        element: <Restaurant />,
       },
     ],
   },
