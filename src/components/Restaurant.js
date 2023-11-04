@@ -24,12 +24,12 @@ const Restaurant = () => {
   }
 
   console.log(restaurantInfo);
-  const { name, costForTwo, locality, avgRating } = restaurantInfo;
+  const { name, costForTwoMessage, locality, avgRating } = restaurantInfo;
 
   return (
     <div>
       <h2>Name: {name}</h2>
-      <p>Cost for Two Persons: {costForTwo}</p>
+      <p>Cost: {costForTwoMessage} persons</p>
       <p>Locality: {locality}</p>
       <p>Average Rating: {avgRating}</p>
     </div>
