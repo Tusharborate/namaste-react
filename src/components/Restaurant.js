@@ -1,30 +1,18 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { RESTO_PREFIX_DOMAIN } from "../utils/config.js";
 import Shimmer from "./Shimmer.js";
+import useRestInfo from "../utils/useRestInfo.js";
+import { useEffect, useState } from "react";
 
 const Restaurant = () => {
-  const params = useParams();
-  const [restaurantInfo, setRestaurantInfo] = useState(null);
-
-  useEffect(() => {
-    restInfo();
-  }, []);
-
-  const restInfo = async () => {
-    const data = await fetch(
-      RESTO_PREFIX_DOMAIN + "&restaurantId=" + params.id
-    );
-    const dataJSON = await data.json();
-    setRestaurantInfo(dataJSON?.data?.cards[0]?.card?.card?.info);
-  };
+  const { id } = useParams();
+  const restaurantInfo = useRestInfo(id);
 
   if (restaurantInfo === null) {
     return <Shimmer />;
   }
 
-  console.log(restaurantInfo);
-  const { name, costForTwoMessage, locality, avgRating } = restaurantInfo;
+  const { name, costForTwoMessage, locality, avgRating } =
+    restaurantInfo?.cards[0]?.card?.card?.info;
 
   return (
     <div>
