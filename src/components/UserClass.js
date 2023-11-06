@@ -4,13 +4,21 @@ class UserClass extends React.Component {
   constructor(props) {
     super(props);
 
+    console.log(this.props.name + " Child component constructor method called");
     this.state = {
       count: 0,
       countTwo: 3,
     };
   }
 
+  componentDidMount() {
+    console.log(
+      this.props.name + " Child component componentDidMount method called"
+    );
+  }
+
   render() {
+    console.log(this.props.name + " Child component render method called");
     return (
       <>
         <h2>Name: {this.props.name}</h2>
