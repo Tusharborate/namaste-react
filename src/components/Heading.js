@@ -26,6 +26,9 @@ const Heading = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
+          <Link to="/grossary">Grossary</Link>
+        </li>
+        <li>
           <Link to="/about">About Us</Link>
         </li>
         <li>

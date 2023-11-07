@@ -1,4 +1,4 @@
-import React from "react";
+import { React, lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -9,6 +9,9 @@ import Services from "./src/components/Services";
 import Contact from "./src/components/Contact";
 import ErrorComp from "./src/components/ErrorComp";
 import Restaurant from "./src/components/Restaurant";
+// import Grossary from "./src/components/Grossary";
+
+const Grossary = lazy(() => import("./src/components/Grossary"));
 
 const Mainwrapper = () => (
   <div className="container">
@@ -26,6 +29,14 @@ const LoginURL = createBrowserRouter([
       {
         path: "/",
         element: <BodyComponent />,
+      },
+      {
+        path: "/grossary",
+        element: (
+          <Suspense fallback={<h2>Loading....</h2>}>
+            <Grossary />
+          </Suspense>
+        ),
       },
       {
         path: "/about",
