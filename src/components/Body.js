@@ -1,4 +1,6 @@
-import RestoComponent, { featuredRestoComponent } from "./Resto";
+import RestoComponentLoop, {
+  featuredRestoComponent,
+} from "./RestoComponentLoop";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
@@ -8,7 +10,7 @@ const BodyComponent = () => {
 
   const [searchVal, setSearchVal] = useState("");
 
-  const RestoComponentPromoted = featuredRestoComponent(RestoComponent);
+  const RestoComponentPromoted = featuredRestoComponent(RestoComponentLoop);
 
   useEffect(() => {
     getRestoData();
@@ -78,7 +80,10 @@ const BodyComponent = () => {
               data={restaurant.info}
             />
           ) : (
-            <RestoComponent key={restaurant.info.id} data={restaurant.info} />
+            <RestoComponentLoop
+              key={restaurant.info.id}
+              data={restaurant.info}
+            />
           );
         })}
       </div>

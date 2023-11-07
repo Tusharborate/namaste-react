@@ -1,7 +1,7 @@
 import { CLOUD_URL } from "../utils/config";
 import { Link } from "react-router-dom";
 
-const RestoComponent = (props) => {
+const RestoComponentLoop = (props) => {
   const { id, cloudinaryImageId, name, locality, cuisines, avgRating } =
     props.data;
   return (
@@ -36,4 +36,4 @@ export const featuredRestoComponent = (RestoComponent) => {
   };
 };
 
-export default RestoComponent;
+export default RestoComponentLoop;
