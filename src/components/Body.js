@@ -66,7 +66,7 @@ const BodyComponent = () => {
           Filter
         </button>
       </div>
-      <div className="resto-container">
+      <div className="flex justify-around flex-wrap">
         {filteredArr.map((restaurant) => {
           return (
             <RestoComponent key={restaurant.info.id} data={restaurant.info} />
