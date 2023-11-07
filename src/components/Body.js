@@ -1,5 +1,6 @@
 import RestoComponentLoop, {
   featuredRestoComponent,
+  areaRestoComponent,
 } from "./RestoComponentLoop";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -11,6 +12,7 @@ const BodyComponent = () => {
   const [searchVal, setSearchVal] = useState("");
 
   const RestoComponentPromoted = featuredRestoComponent(RestoComponentLoop);
+  const AreaComponent = areaRestoComponent(RestoComponentLoop);
 
   useEffect(() => {
     getRestoData();
@@ -74,11 +76,8 @@ const BodyComponent = () => {
       <div className="flex justify-evenly items-stretch flex-wrap">
         {filteredArr.map((restaurant) => {
           console.log(restaurant);
-          return restaurant.info.veg ? (
-            <RestoComponentPromoted
-              key={restaurant.info.id}
-              data={restaurant.info}
-            />
+          return restaurant.info.areaName == "Shivajinagar" ? (
+            <AreaComponent key={restaurant.info.id} data={restaurant.info} />
           ) : (
             <RestoComponentLoop
               key={restaurant.info.id}

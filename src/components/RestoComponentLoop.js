@@ -23,14 +23,27 @@ const RestoComponentLoop = (props) => {
   );
 };
 
-export const featuredRestoComponent = (RestoComponent) => {
+export const featuredRestoComponent = (RestoComponentLoop) => {
   return (props) => {
     return (
       <div className="relative">
         <span className="absolute bg-orange-400 px-2 py-1 w-full text-center font-bold">
           Pure Veg
         </span>
-        <RestoComponent {...props} />
+        <RestoComponentLoop {...props} />
+      </div>
+    );
+  };
+};
+
+export const areaRestoComponent = (RestoComponentLoop) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <span className="absolute bg-orange-400 px-2 py-1 w-full text-center font-bold">
+          Shivajinagar Area
+        </span>
+        <RestoComponentLoop {...props} />
       </div>
     );
   };
