@@ -5,7 +5,7 @@ const RestoComponent = (props) => {
   const { id, cloudinaryImageId, name, locality, cuisines, avgRating } =
     props.data;
   return (
-    <div className="w-[250px] border-solid border-[1px] border-black mb-3 hover:bg-pink-50">
+    <div className="flex flex-col w-[250px] border-solid border-[1px] border-black mb-4 hover:bg-pink-50">
       <Link to={"/restaurants/" + id}>
         <img
           className="h-60 w-full"
@@ -21,6 +21,19 @@ const RestoComponent = (props) => {
       </Link>
     </div>
   );
+};
+
+export const featuredRestoComponent = (RestoComponent) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <span className="absolute bg-orange-400 px-2 py-1 w-full text-center font-bold">
+          Pure Veg
+        </span>
+        <RestoComponent {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestoComponent;

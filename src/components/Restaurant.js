@@ -10,7 +10,7 @@ const Restaurant = () => {
   if (restaurantInfo === null) {
     return <Shimmer />;
   }
-
+  console.log(restaurantInfo?.cards[0]?.card?.card?.info);
   const { name, costForTwoMessage, locality, avgRating } =
     restaurantInfo?.cards[0]?.card?.card?.info;
 

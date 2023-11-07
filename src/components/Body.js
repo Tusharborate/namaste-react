@@ -1,4 +1,4 @@
-import RestoComponent from "./Resto";
+import RestoComponent, { featuredRestoComponent } from "./Resto";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
@@ -7,6 +7,9 @@ const BodyComponent = () => {
   const [filteredArr, setFilteredArr] = useState([]);
 
   const [searchVal, setSearchVal] = useState("");
+
+  const RestoComponentPromoted = featuredRestoComponent(RestoComponent);
+
   useEffect(() => {
     getRestoData();
   }, []);
@@ -32,17 +35,17 @@ const BodyComponent = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="flex px-2 my-6">
         <input
           type="text"
-          className="search-field"
+          className="border-solid border-[1px] border-black py-1 px-2"
           value={searchVal}
           onChange={(e) => {
             setSearchVal(e.target.value);
           }}
         />
         <button
-          className="search-btn"
+          className="bg-amber-400 p-3 ml-3 rounded-sm hover:bg-amber-300"
           onClick={() => {
             const tempSearchArray = restaurantArr.filter((restaurant) => {
               return restaurant.info.name
@@ -55,7 +58,7 @@ const BodyComponent = () => {
           Search
         </button>
         <button
-          className="filter-btn"
+          className="bg-amber-400 p-3 ml-3 rounded-sm hover:bg-amber-300"
           onClick={() => {
             const tempRestArray = restaurantArr.filter((restaurant) => {
               return restaurant.info.avgRating > 4;
@@ -66,9 +69,15 @@ const BodyComponent = () => {
           Filter
         </button>
       </div>
-      <div className="flex justify-around flex-wrap">
+      <div className="flex justify-evenly items-stretch flex-wrap">
         {filteredArr.map((restaurant) => {
-          return (
+          console.log(restaurant);
+          return restaurant.info.veg ? (
+            <RestoComponentPromoted
+              key={restaurant.info.id}
+              data={restaurant.info}
+            />
+          ) : (
             <RestoComponent key={restaurant.info.id} data={restaurant.info} />
           );
         })}
