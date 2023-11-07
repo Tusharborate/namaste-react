@@ -1,9 +1,11 @@
 import { LOGO_URL } from "../utils/config";
 import { useEffect, useState } from "react";
+import useOnlineStatus from "../utils/useOnlineStatus";
 import { Link } from "react-router-dom";
 
 const Heading = () => {
   const [btnLabel, setBtnLabel] = useState("Login");
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     console.log("Header Button Clicked");
@@ -15,6 +17,11 @@ const Heading = () => {
         <img src={LOGO_URL} alt="Logo" />
       </div>
       <ul className="navigation">
+        <li>
+          <p style={{ fontSize: "12px" }}>
+            Online Status: {onlineStatus === true ? "✔️" : "❌"}
+          </p>
+        </li>
         <li>
           <Link to="/">Home</Link>
         </li>

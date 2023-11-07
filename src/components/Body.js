@@ -7,7 +7,6 @@ const BodyComponent = () => {
   const [filteredArr, setFilteredArr] = useState([]);
 
   const [searchVal, setSearchVal] = useState("");
-
   useEffect(() => {
     getRestoData();
   }, []);
