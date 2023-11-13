@@ -1,9 +1,12 @@
 import { CLOUD_URL } from "../utils/config";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const RestoComponentLoop = (props) => {
   const { id, cloudinaryImageId, name, locality, cuisines, avgRating } =
     props.data;
+  const { loggedInUser } = useContext(UserContext);
   return (
     <div className="flex flex-col w-[250px] border-solid border-[1px] border-black mb-4 hover:bg-pink-50">
       <Link to={"/restaurants/" + id}>
@@ -17,6 +20,7 @@ const RestoComponentLoop = (props) => {
           <p className="resto-options">{cuisines.join(", ")}</p>
           <p className="resto-location">{locality}</p>
           <p className="resto-ratings">{avgRating}</p>
+          <p>{loggedInUser}</p>
         </div>
       </Link>
     </div>

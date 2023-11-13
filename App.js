@@ -9,16 +9,34 @@ import Services from "./src/components/Services";
 import Contact from "./src/components/Contact";
 import ErrorComp from "./src/components/ErrorComp";
 import Restaurant from "./src/components/Restaurant";
+import { useState, useEffect } from "react";
+import UserContext from "./src/utils/UserContext";
+
 // import Grossary from "./src/components/Grossary";
 
 const Grossary = lazy(() => import("./src/components/Grossary"));
 
-const Mainwrapper = () => (
-  <div className="container">
-    <Heading />
-    <Outlet />
-  </div>
-);
+const Mainwrapper = () => {
+  const [userName, setUserName] = useState();
+
+  //authentication
+  useEffect(() => {
+    // Make an API call and send username and password
+    const data = {
+      name: "Tushar Borate",
+    };
+    setUserName(data.name);
+  }, []);
+
+  return (
+    <div className="container">
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <Heading />
+        <Outlet />
+      </UserContext.Provider>
+    </div>
+  );
+};
 
 const LoginURL = createBrowserRouter([
   {

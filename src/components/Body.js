@@ -4,6 +4,8 @@ import RestoComponentLoop, {
 } from "./RestoComponentLoop";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const BodyComponent = () => {
   const [restaurantArr, setRestaurantArr] = useState([]);
@@ -13,6 +15,7 @@ const BodyComponent = () => {
 
   const RestoComponentPromoted = featuredRestoComponent(RestoComponentLoop);
   const AreaComponent = areaRestoComponent(RestoComponentLoop);
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     getRestoData();
@@ -72,6 +75,14 @@ const BodyComponent = () => {
         >
           Filter
         </button>
+        <div className="search m-4 p-4 flex items-center">
+          <label>UserName : </label>
+          <input
+            className="border border-black p-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
       <div className="flex justify-evenly items-stretch flex-wrap">
         {filteredArr.map((restaurant) => {

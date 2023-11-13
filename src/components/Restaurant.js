@@ -1,12 +1,15 @@
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
 import RestaurantCategories from "./RestaurantCategories.js";
 import Shimmer from "./Shimmer.js";
 import useRestInfo from "../utils/useRestInfo.js";
 import { useEffect, useState } from "react";
+import UserContext from "../utils/UserContext";
 
 const Restaurant = () => {
   const { id } = useParams();
   const restaurantInfo = useRestInfo(id);
+  const { loggedInUser } = useContext(UserContext);
 
   const [showIndex, setShowIndex] = useState(null);
   const restaurantCat =
