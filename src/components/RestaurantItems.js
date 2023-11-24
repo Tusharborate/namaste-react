@@ -1,8 +1,18 @@
 import React from "react";
 import { CLOUD_URL } from "../utils/config";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const RestaurantItems = ({ data }) => {
-  const { name, description, imageId } = data?.card?.info;
+  console.log(data);
+  const { description, imageId } = data?.card?.info;
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    // Dispatch an action
+    dispatch(addItem(item));
+  };
+
   return (
     <div className="flex items-center justify-between py-3 border-b-[1px]">
       <div className="w-10/12">
@@ -13,8 +23,16 @@ const RestaurantItems = ({ data }) => {
           /-
         </p>
       </div>
-      <div className="w-2/12">
+      <div className="w-2/12 relative">
         {imageId && <img src={CLOUD_URL + imageId} alt={name} />}
+        <div className="absolute bottom-0 right-0">
+          <button
+            className="p-2 rounded-lg bg-black text-white shadow-lg"
+            onClick={() => handleAddItem(data)}
+          >
+            Add +
+          </button>
+        </div>
       </div>
     </div>
   );

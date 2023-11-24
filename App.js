@@ -5,12 +5,16 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Heading from "./src/components/Heading";
 import BodyComponent from "./src/components/Body";
 import About from "./src/components/About";
+import Cart from "./src/components/Cart";
 import Services from "./src/components/Services";
 import Contact from "./src/components/Contact";
 import ErrorComp from "./src/components/ErrorComp";
 import Restaurant from "./src/components/Restaurant";
 import { useState, useEffect } from "react";
 import UserContext from "./src/utils/UserContext";
+
+import { Provider } from "react-redux";
+import appStore from "./src/utils/appStore";
 
 // import Grossary from "./src/components/Grossary";
 
@@ -30,10 +34,12 @@ const Mainwrapper = () => {
 
   return (
     <div className="container">
-      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-        <Heading />
-        <Outlet />
-      </UserContext.Provider>
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+          <Heading />
+          <Outlet />
+        </UserContext.Provider>
+      </Provider>
     </div>
   );
 };
@@ -63,6 +69,10 @@ const LoginURL = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/contact",

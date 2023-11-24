@@ -75,7 +75,7 @@ const BodyComponent = () => {
         >
           Filter
         </button>
-        <div className="search m-4 p-4 flex items-center">
+        <div className="search ml-6 flex items-center">
           <label>UserName : </label>
           <input
             className="border border-black p-2"
@@ -86,7 +86,6 @@ const BodyComponent = () => {
       </div>
       <div className="flex justify-evenly items-stretch flex-wrap">
         {filteredArr.map((restaurant) => {
-          console.log(restaurant);
           return restaurant.info.areaName == "Shivajinagar" ? (
             <AreaComponent key={restaurant.info.id} data={restaurant.info} />
           ) : (

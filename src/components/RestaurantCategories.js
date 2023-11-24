@@ -12,7 +12,7 @@ const RestaurantCategories = ({ data, showItems, setShowIndexChild }) => {
         className="flex justify-between font-bold cursor-pointer p-3"
         onClick={toggleCategoryData}
       >
-        {data.card.card.title}
+        {data.card.card.title} ({data.card.card.itemCards.length})
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
